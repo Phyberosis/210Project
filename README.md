@@ -6,3 +6,6 @@ screen capture coordinates will likely need to be changed in ScreenToInput -> us
 start script with "begin" in input box
 
 descision making done in TrainerTetris class
+
+
+https://www.youtube.com/watch?v=Q-oGh9OPsrk&t=1s
