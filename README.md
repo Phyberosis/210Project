@@ -8,4 +8,4 @@ start script with "begin" in input box
 descision making done in TrainerTetris class
 
 
-https://www.youtube.com/watch?v=Q-oGh9OPsrk&t=1s
+The tetris player: https://www.youtube.com/watch?v=Q-oGh9OPsrk&t=1s
