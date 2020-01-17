@@ -15,11 +15,10 @@ public class ScreenToInput extends BlockHandler {
      * may need to adjust screen area -> enter "capture" into textbox
      */
 
-    //  note to self: 6 right 2 down to position
-    //  x, y of top right, size is w, h
-    private final int[] LEFT_BOARD = {224, 390};
-    private final int[] RIGHT_BOARD = {1285, 414};
-    private final int[] SIZE = {290, 600};
+    //  note to self: 100 % zoom, do not move, window fill half to left on laptop
+    private final int[] LEFT_BOARD = {605, 444};
+    // private final int[] RIGHT_BOARD = {1285, 414};
+    private final int[] SIZE = {260, 520};
 
 
     private final int BOARD_WIDTH = 10;
@@ -188,17 +187,18 @@ public class ScreenToInput extends BlockHandler {
             //debug
 //            System.out.println(x+", "+y+": "+clr.toString());
 //            capture.setRGB(xCoord, yCoord, Color.WHITE.getRGB());
+//            capture();
         }
 
         boolean success = trySetCurrBlock(data, offset, BOARD_WIDTH);
 
         //debug
-//        if(success) {
-//            printBoard(data, offset, BOARD_AREA, BOARD_WIDTH);
-//            printBlock(block);
+        if(success) {
+            printBoard(data, offset, BOARD_AREA, BOARD_WIDTH);
+            printBlock(block);
 //            printBlock(type.getGeometry());
 //            System.out.println("r, t: "+r + " "+type.getVal());
-//        }
+        }
 
         float[] toRet = new float[data.length];
         for(int i = 0; i<data.length; i++){

@@ -136,7 +136,7 @@ public class TetrisGUI extends Application {
     }
 
     //demo
-    private int stage = 0;
+    private int stage = 3;
     private void filmDemo(){
         String myTag = "\n\njust a chat bot\t: ";
         switch (stage){
@@ -177,26 +177,31 @@ public class TetrisGUI extends Application {
 
     public void handleKey(KeyEvent keyEvent) {
         KeyCode kc = keyEvent.getCode();
+
         switch (kc){
             case ENTER:
                 String newIn = FXInput.getText().toLowerCase();
+                appendTextArea("\nyou: \""+newIn+"\"");
+
                 switch (newIn){
                     case "begin":
-                        appendTextArea("you: \""+newIn+"\"");
                         new Thread(() -> {
-                            appendTextArea("tetris player started");
+                            appendAnimate("tetris player started");
 //                        tPlayer.altTabAndHitSpace(2);
                             tPlayer.initAndRun();
                             FXOutput.setFont(Font.font(java.awt.Font.MONOSPACED, 18));
                         }).start();
                         break;
+                    case "open":
+                        appendAnimate("opening link to tetris...");
+                        tPlayer.initTetrisWindow();
+                        break;
                     case "capture":
                         String file = tPlayer.capture();
-                        appendTextArea("you: \""+newIn+"\"");
-                        appendTextArea("game area captured, check file "+file);
+                        appendAnimate("game area captured, check file "+file);
                         break;
                     case "help":
-                        appendTextArea("\"begin\"\t- starts player, updates on new block\n" +
+                    appendTextArea("\"begin\"\t- starts player, updates on new block\n" +
                                 "\"capture\"\t- takes snapshot of current game area I see for config");
                         break;
 
